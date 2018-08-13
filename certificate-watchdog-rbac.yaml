@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ClusterRole
+metadata:
+  annotations:
+    openshift.io/description: A user capable of monitor and change the secrets, configmaps and routes
+    openshift.io/reconcile-protect: "false"
+  name: certificate-watchdog-role
+rules:
+- apiGroups:
+  - ""
+  attributeRestrictions: null
+  resources:
+  - secrets
+  verbs:
+  - get
+  - list
+  - update
+  - patch
+- apiGroups:
+  - ""
+  attributeRestrictions: null
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - list
+  - update  
+  - patch  
+- apiGroups:
+  - ""
+  attributeRestrictions: null
+  resources:
+  - routes
+  verbs:
+  - get
+  - list
+  - update  
+  - patch  
